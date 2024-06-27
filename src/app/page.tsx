@@ -1,3 +1,3 @@
 export default function HomePage() {
-  return <main className="">Hello, welcome to my app</main>;
+  return <main className="p-4">Hello, welcome to my app</main>;
 }

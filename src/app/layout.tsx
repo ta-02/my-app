@@ -1,13 +1,8 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { TopNav } from "components/topNav";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Create T3 App",
@@ -22,15 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${GeistSans.variable}`}>
-        <body>
-          <SignedOut>
-            <SignInButton />
-          </SignedOut>
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
-          {children}
+      <html lang="en" className={GeistSans.variable}>
+        <body className="dark">
+          <TopNav />
+          <main>{children}</main>
         </body>
       </html>
     </ClerkProvider>
