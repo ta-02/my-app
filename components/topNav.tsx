@@ -1,4 +1,5 @@
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { ModeToggle } from "./mode-toggle";
 
 export const TopNav = () => {
   return (
@@ -11,6 +12,9 @@ export const TopNav = () => {
         <SignedIn>
           <UserButton />
         </SignedIn>
+        <div className="">
+          <ModeToggle />
+        </div>
       </div>
     </nav>
   );
