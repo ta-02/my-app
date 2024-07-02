@@ -22,11 +22,19 @@ export const notes = createTable(
   "notes",
   {
     id: serial("id").primaryKey(),
-    name: varchar("name", { length: 256 }),
+    name: varchar("name", { length: 256 }).notNull(),
+    class: varchar("class", { length: 256 }),
+    lecture: varchar("lecture", { length: 256 }),
+    noteText: varchar("noteText").notNull(),
+    userId: varchar("userId", { length: 256 }).notNull(),
+    // tags: varchar("tags", { type: "varchar", length: 256 }),
+    // sharedWith: array("sharedWith", { type: "varchar", length: 256 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
-    updatedAt: timestamp("updatedAt", { withTimezone: true }),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
