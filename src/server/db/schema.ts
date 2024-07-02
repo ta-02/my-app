@@ -18,8 +18,8 @@ import {
  */
 export const createTable = pgTableCreator((name) => `my-app_${name}`);
 
-export const posts = createTable(
-  "post",
+export const notes = createTable(
+  "notes",
   {
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
@@ -30,5 +30,5 @@ export const posts = createTable(
   },
   (example) => ({
     nameIndex: index("name_idx").on(example.name),
-  })
+  }),
 );
