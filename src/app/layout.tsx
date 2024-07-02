@@ -1,7 +1,8 @@
 import "~/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
-import { TopNav } from "components/topNav";
+import { Header } from "components/header";
+import { Footer } from "components/footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "components/theme-provider";
 
@@ -21,8 +22,9 @@ export default function RootLayout({
       <html lang="en" className={GeistSans.variable}>
         <body>
           <ThemeProvider attribute="class" defaultTheme="system">
-            <TopNav />
+            <Header />
             <main>{children}</main>
+            <Footer />
           </ThemeProvider>
         </body>
       </html>
