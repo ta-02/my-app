@@ -5,12 +5,18 @@ import Link from "next/link";
 export const Header = () => {
   return (
     <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
-      <Link href="/home">Laurier Notes</Link>
-      <div className="flex w-full items-center justify-between border-b p-1 text-xl font-semibold">
-        <Link href="/create">Create</Link>
-        <Link href="/myNotes">My Notes</Link>
-        <Link href="/placeholder">Placeholder</Link>
-        <Link href="/placeholder">Placeholder</Link>
+      <div className="flex w-full">
+        <Link href="/" className="hover:text-blue-700">
+          Laurier Notes
+        </Link>
+        <div className="ml-10 flex items-start justify-start space-x-10">
+          <Link href="/createNote" className="hover:text-blue-700">
+            Create Note
+          </Link>
+          <Link href="/myNotes" className="hover:text-blue-700">
+            My Notes
+          </Link>
+        </div>
       </div>
       <div className="ml-4 flex flex-row items-center gap-4">
         <SignedOut>
