@@ -1,9 +1,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import { db } from "~/server/db";
+import ShowNotesPreview from "./showNotesPreview";
 
 export default async function HomePage() {
-  const notes = await db.query.notes.findMany();
-
   return (
     <main className="p-4">
       <SignedOut>
@@ -13,11 +11,7 @@ export default async function HomePage() {
         <div className="flex justify-center">
           Hello, welcome to Laurier Notes
         </div>
-        <ul className="container">
-          {notes.map((note) => (
-            <li key={note.id}>{note.name}</li>
-          ))}
-        </ul>
+        <ShowNotesPreview />
       </SignedIn>
     </main>
   );
