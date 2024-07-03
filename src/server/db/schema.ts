@@ -8,7 +8,9 @@ import {
   serial,
   timestamp,
   varchar,
+  text
 } from "drizzle-orm/pg-core";
+
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -27,8 +29,9 @@ export const notes = createTable(
     lecture: varchar("lecture", { length: 256 }),
     noteText: varchar("noteText").notNull(),
     userId: varchar("userId", { length: 256 }).notNull(),
-    // tags: varchar("tags", { type: "varchar", length: 256 }),
-    // sharedWith: array("sharedWith", { type: "varchar", length: 256 }),
+    tags: text('tags').array().default(sql`ARRAY[]::text[]`),
+    //sharedWith: text('sharedWith').array().default(sql`ARRAY[]::sharedWith[]`),
+
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
